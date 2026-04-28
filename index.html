@@ -118,7 +118,7 @@
 			<div class="formulario">
 				<h2>Registrar nueva novedad urbana</h2>
 				<form id="formulario-reporte">
-					<div class="tipo-novedad">
+					<div class="reportes">
 						<label for="tipoNovedad">Tipo de Novedad:</label>
 						<section id="tipoNovedad" required>
 							<option value="">--Selecciones una opcion--</option>
@@ -128,14 +128,123 @@
 							<option value="Residuos-Aseo">Residuos y Aseo</option>
 							<option value="Alcantarillado">Alcantarillado</option>
 						</section>
-
 					</div>
+
+					<div class="reportes">
+                        <label for="ubicacion">Ubicación del Reporte:</label>
+                        <input type="text" id="ubicacion" name="direccionReporte" placeholder="Ej: Calle 26 # 50-00" required>                    
+					</div>
+
+                    <div class="reportes">
+                        <label for="descripcion">Descripción del Problema:</label>
+                        <textarea id="descripcion" name="descripcionReporte" placeholder="Describe la novedad con detalles..." required></textarea>
+                    </div>
+
+                    <div class="reportes">
+                        <label for="foto">Adjuntar evidencia fotografica (opcional):</label>
+                        <input type="file" id="foto" name="fotoReporte" accept="image/jpeg,image/png,image/webp">
+                        <small class="form-text">
+                            Formatos permitidos: <strong>JPG, PNG o WebP</strong>. <br>
+                            Tamaño máximo: <strong>1 MB</strong>.
+                        </small>
+                    </div>
+
+                    <!-- Datos opcionales -->
+                    <fieldset class="datos-opcionales">
+                        <legend>Datos Opcionales (para seguimiento)</legend>
+                        <div class="reportes">
+                            <label for="nombreUsuario">Nombre completo</label>
+                            <input type="text" id="nombreUsuario" placeholder="Tu nombre (opcional)">
+                        </div>
+
+                        <div class="reportes">
+                            <label for="contacto">Teléfono o Correo Electrónico</label>
+                            <input type="text" id="contacto" placeholder="Ej: 3001234567 o correo@email.com (opcional)">
+                        </div>
+
+                        <div class="autorizacion-datos">
+                            <label for="autorizacionDatos">
+                                <input type="checkbox" id="autorizacionDatos">
+                                Autorizo el tratamiento de mis datos personales para el seguimiento de mi reporte de acuerdo con la Política de Protección de Datos
+                            </label>
+                        </div>                        
+                    </fieldset>
+
+                    <div class="botones">
+                        <button type="submit" class="btn-enviar">Enviar Reporte</button>
+                        <button type="reset" class="btn-limpiar">Limpiar Formulario</button>
+                    </div>
+
 				</form>
-
 			</div>
-
 		</section>
-			
+
+        <!-- Sección de consulta de reportes -->
+        <section id="consultar" class="seccionReporte">
+            <div class="seccion-seguimiento">
+                <h2>Seguimiento de mi reporte</h2>
+                
+                <div class="contenedor-busqueda">
+                    <input type="text" id="idReporte" placeholder="Ingrese el ID de su reporte (Ej: RPT-001)">
+                    
+                    <button type="button" id="btnBuscar">Buscar Estado</button>
+                </div>
+
+                <div id="contenedorResultado" class="contenedor-resultado">
+                    <h4>Estado de su reporte:</h4>
+                    
+                    <p><strong>ID Reporte:</strong> <span id="resultadoId"></span></p>
+                    <p><strong>Tipo:</strong> <span id="resultadoTipo"></span></p>
+                    <p><strong>Ubicación:</strong> <span id="resultadoUbicacion"></span></p>
+                    <p><strong>Estado:</strong> <span id="resultadoEstado"></span></p>
+                    <p><strong>Fecha de Reporte:</strong> <span id="resultadoFecha"></span></p>
+                    <p><strong>Nombre:</strong> <span id="resultadoNombre"></span></p>
+                    <p><strong>Contacto:</strong> <span id="resultadoContacto"></span></p>
+                    
+                    <div id="contenedorImagenResultado"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL ADMINISTRATIVO -->
+         <section id="admin" class="seccionReporte">
+            <div class="admin-seccion">
+                <h2>Panel de Control Administrativo</h2>                
+                <button id="btnCerrarSesion" style="margin-bottom: 20px;">Cerrar Sesión</button>
+                
+                <!-- ESTADÍSTICAS -->                              
+                <div class="contenedor-estadisticas">
+                    <div class="tarjeta-estadistica">
+                            <h3>Total de reportes</h3>
+                            <div id="numTotalReportes" class="numero-estadistica">0</div>
+                        </div>
+                        <div class="tarjeta-estadistica">
+                            <h3>Casos Críticos</h3>
+                            <div id="numCasosCriticos" class="numero-estadistica">0</div>
+                        </div>
+                        <div class="tarjeta-estadistica">
+                            <h3>En Proceso</h3>
+                            <div id= "numEnProceso" class="numero-estadistica">0</div>
+                        </div>
+                </div>
+
+                <!-- TABLA DE GESTIÓN -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Tipo de Novedad</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla-reportes">
+                        <!-- Filas de la tabla serán agregadas dinámicamente -->
+                    </tbody>
+                </table>    
+        
 	</main>
 		
     
