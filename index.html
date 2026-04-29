@@ -1,144 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte ciudadano Bogotá</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte ciudadano Bogotá</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-	<!--encabezado-->
-	<header>
-		<div class="Encabezado">
-			<h1 class="logo" id="logo-inicio">🏙️ Reporte ciudadano Bogotá</h1>
-			<nav>
-				<ul>
-					<li><a href="#" class="enlace-nav" data-section="inicio">Inicio</a></li>
-					<li><a href="#" class="enlace-nav" data-section="reportar">Reportar Novedad</a></li>
-					<li><a href="#" class="enlace-nav" data-section="consultar">Consultar Reporte</a></li>
-					<li><a href="#" class="enlace-nav" data-section="acceso">Acceso Administrador</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+    <!--encabezado-->
+    <header>
+        <div class="Encabezado">
+            <h1 class="logo" id="logo-inicio">🏙️ Reporte ciudadano Bogotá</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="enlace-nav" data-section="inicio">Inicio</a></li>
+                    <li><a href="#" class="enlace-nav" data-section="reportar">Reportar Novedad</a></li>
+                    <li><a href="#" class="enlace-nav" data-section="consultar">Consultar Reporte</a></li>
+                    <li><a href="#" class="enlace-nav" data-section="acceso">Acceso Administrador</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-	<main>
-		<!-- Sección de inicio -->
-		<section id="inicio" class="seccion">
-			<div class="crear-reporte">
-				<h2>Bienvenido a Reporte Ciudadano Bogotá</h2>
-				<p class="descripcion-seccion">En esta plataforma puedes reportar cualquier novedad que afecte tu comunidad, consultar el estado de tus reportes y acceder a información relevante sobre la ciudad.</p>
-				<button class="crear-reporte" id="inicio-reporte">Crear Reporte Ahora</button>
-			</div>
+    <main>
+        <!-- Sección de inicio -->
+        <section id="inicio" class="seccion">
+            <div class="crear-reporte">
+                <h2>Bienvenido a Reporte Ciudadano Bogotá</h2>
+                <p class="descripcion-seccion">En esta plataforma puedes reportar cualquier novedad que afecte tu
+                    comunidad, consultar el estado de tus reportes y acceder a información relevante sobre la ciudad.
+                </p>
+                <button class="crear-reporte" id="inicio-reporte">Crear Reporte Ahora</button>
+            </div>
 
-			<!-- Tipos de novedades -->
-			 <div class="seccion-informacion">
-				<h3>Tipos de Novedades que Puedes Reportar</h3>
-				<div class="tarjetas">
-					<div class="tipo-tarjetas">
-						<div class="tarjeta-interior">
-							<div class="tarjeta-frontal">
-								<div class="icono">🛣️</div>
-                  <h4>Huecos y Baches</h4>
-                  <p>Daños en la malla vial</p>
-							</div>
-							<div class="tarjeta-detras">
-								<h4>Huecos y Baches</h4>
-                <p>Reporta de daños en la malla vial, hundimientos o grietas que afecten la movilidad en tu zona.</p>
+            <!-- Tipos de novedades -->
+            <div class="seccion-informacion">
+                <h3>Tipos de Novedades que Puedes Reportar</h3>
+                <div class="tarjetas">
+                    <div class="tipo-tarjetas">
+                        <div class="tarjeta-interior">
+                            <div class="tarjeta-frontal">
+                                <div class="icono">🛣️</div>
+                                <h4>Huecos y Baches</h4>
+                                <p>Daños en la malla vial</p>
+                            </div>
+                            <div class="tarjeta-detras">
+                                <h4>Huecos y Baches</h4>
+                                <p>Reporta de daños en la malla vial, hundimientos o grietas que afecten la movilidad en
+                                    tu zona.</p>
+                            </div>
+                        </div>
+                    </div>            
+
+                    <div class="tipo-tarjetas">
+                        <div class="tarjeta-interior">
+                            <div class="tarjeta-frontal">
+                                <div class="icono">💡</div>
+                                <h4>Luminarias</h4>
+                                <p>Problemas con la iluminación de las zonas.</p>
+                            </div>
+                            <div class="tarjeta-detras">
+                                <h4>Luminarias</h4>
+                                <p>Informa sobre farolas fundidas, intermitentes o daños en el alumbrado público.</p>
+                            </div>
+                        </div>
+                    </div>                
+
+                    <div class="tipo-tarjetas">
+                        <div class="tarjeta-interior">
+                            <div class="tarjeta-frontal">
+                                <div class="icono">🚦</div>
+                                <h4>Semáforos</h4>
+                                <p>Semáforos dañados o mal funcionamiento.</p>
+                            </div>
+                            <div class="tarjeta-detras">
+                                <h4>Semáforos</h4>
+                                <p>Registra los fallos en la sincronización, luces apagadas o daños físicos en las señales
+                                    luminosas.</p>
+                            </div>
+                        </div>
+                    </div>                               
+
+                    <div class="tipo-tarjetas">
+                        <div class="tarjeta-interior">
+                            <div class="tarjeta-frontal">
+                                <div class="icono">🗑️</div>
+                                <h4>Residuos y Aseo</h4>
+                                <p>Acumulación de basura y aseo.</p>
+                            </div>
+                            <div class="tarjeta-detras">
+                                <h4>Residuos y Aseo</h4>
+                                <p>Reporta la acumulación de basura en lugares no permitidos, daños en contenedores, falta de
+                                    recolección o escombros.</p>
+                            </div>
+                        </div>
+                    </div>                
+
+                    <div class="tipo-tarjetas">
+                        <div class="tarjeta-interior">
+                            <div class="tarjeta-frontal">
+                                <div class="icono">🕳️</div>
+                                <h4>Alcantarillado</h4>
+                                <p>Alcantarillas rotas o faltantes</p>
+                            </div>
+                            <div class="tarjeta-detras">
+                                <h4>Alcantarillado</h4>
+                                <p>Reporta las alcantarillas en mal estado, faltantes o con desbordamiento de aguas negras.</p>
+                            </div>
+                        </div>
+                    </div>                    
+
                 </div>
-							</div>
-						</div>
-					</div>
+                
+        </section>
 
-					<div class="tipo-tarjetas">
-						<div class="tarjeta-interior">
-							<div class="tarjeta-frontal">
-								<div class="icono">💡</div>
-                  <h4>Luminarias</h4>
-                  <p>Problemas con la iluminación de las zonas.</p>
-							</div>
-							<div class="tarjeta-detras">
-								<h4>Luminarias</h4>
-                <p>Informa sobre farolas fundidas, intermitentes o daños en el alumbrado público para ayudarnos a mantener las calles iluminadas y seguras.</p>
-                </div>
-							</div>
-						</div>
-					</div>
+        <!-- Formulario de reporte -->
+        <section class="formulario" id="reporte">
+            <div class="formulario">
+                <h2>Registrar nueva novedad urbana</h2>
+                <form id="formulario-reporte">
+                    <div class="reportes">
+                        <label for="tipoNovedad">Tipo de Novedad:</label>
+                        <section id="tipoNovedad" required>
+                            <option value="">--Selecciones una opcion--</option>
+                            <option value="Huecos-Baches">Huecos y Baches</option>
+                            <option value="Luminarias">Luminarias</option>
+                            <option value="Semáforos">Semáforos</option>
+                            <option value="Residuos-Aseo">Residuos y Aseo</option>
+                            <option value="Alcantarillado">Alcantarillado</option>
+                        </section>
+                    </div>
 
-					<div class="tipo-tarjetas">
-						<div class="tarjeta-interior">
-							<div class="tarjeta-frontal">
-								<div class="icono">🚦</div>
-                  <h4>Semáforos</h4>
-                  <p>Semáforos dañados o mal funcionamiento.</p>
-							</div>
-							<div class="tarjeta-detras">
-								<h4>Semáforos</h4>
-                <p>Registra los fallos en la sincronización, luces apagadas o daños físicos en las señales luminosas que regulan el tráfico de la ciudad.</p>
-                </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="tipo-tarjetas">
-						<div class="tarjeta-interior">
-							<div class="tarjeta-frontal">
-								<div class="icono">🗑️</div>
-                  <h4>Residuos y Aseo</h4>
-                  <p>Acumulación de basura y aseo.</p>
-							</div>
-							<div class="tarjeta-detras">
-								<h4>Residuos y Aseo</h4>
-                <p>Reporta la acumulación de basura en lugares no permitidos, daños en contenedores, falta de recolección o escombros que obstruyan el paso y afecten la higiene pública.</p>
-                </div>
-							</div>
-						</div>
-					</div>
-
-					<div class="tipo-tarjetas">
-						<div class="tarjeta-interior">
-							<div class="tarjeta-frontal">
-								<div class="icono">🕳️</div>
-                  <h4>Alcantarillado</h4>
-                  <p>Alcantarillas rotas o faltantes</p>
-							</div>
-							<div class="tarjeta-detras">
-								<h4>Alcantarillado</h4>
-                <p>Reporta las alcantarillas en mal estado, faltantes o con desbordamiento de aguas negras.</p>
-                </div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			 </div>
-		</section>
-
-		<!-- Formulario de reporte -->	
-		<section class="formulario" id="reporte">
-			<div class="formulario">
-				<h2>Registrar nueva novedad urbana</h2>
-				<form id="formulario-reporte">
-					<div class="reportes">
-						<label for="tipoNovedad">Tipo de Novedad:</label>
-						<section id="tipoNovedad" required>
-							<option value="">--Selecciones una opcion--</option>
-							<option value="Huecos-Baches">Huecos y Baches</option>
-							<option value="Luminarias">Luminarias</option>
-							<option value="Semáforos">Semáforos</option>
-							<option value="Residuos-Aseo">Residuos y Aseo</option>
-							<option value="Alcantarillado">Alcantarillado</option>
-						</section>
-					</div>
-
-					<div class="reportes">
+                    <div class="reportes">
                         <label for="ubicacion">Ubicación del Reporte:</label>
-                        <input type="text" id="ubicacion" name="direccionReporte" placeholder="Ej: Calle 26 # 50-00" required>                    
-					</div>
+                        <input type="text" id="ubicacion" name="direccionReporte" placeholder="Ej: Calle 26 # 50-00"
+                            required>
+                    </div>
 
                     <div class="reportes">
                         <label for="descripcion">Descripción del Problema:</label>
-                        <textarea id="descripcion" name="descripcionReporte" placeholder="Describe la novedad con detalles..." required></textarea>
+                        <textarea id="descripcion" name="descripcionReporte"
+                            placeholder="Describe la novedad con detalles..." required></textarea>
                     </div>
 
                     <div class="reportes">
@@ -166,9 +170,10 @@
                         <div class="autorizacion-datos">
                             <label for="autorizacionDatos">
                                 <input type="checkbox" id="autorizacionDatos">
-                                Autorizo el tratamiento de mis datos personales para el seguimiento de mi reporte de acuerdo con la Política de Protección de Datos
+                                Autorizo el tratamiento de mis datos personales para el seguimiento de mi reporte de
+                                acuerdo con la Política de Protección de Datos
                             </label>
-                        </div>                        
+                        </div>
                     </fieldset>
 
                     <div class="botones">
@@ -176,24 +181,24 @@
                         <button type="reset" class="btn-limpiar">Limpiar Formulario</button>
                     </div>
 
-				</form>
-			</div>
-		</section>
+                </form>
+            </div>
+        </section>
 
         <!-- Sección de consulta de reportes -->
         <section id="consultar" class="seccionReporte">
             <div class="seccion-seguimiento">
                 <h2>Seguimiento de mi reporte</h2>
-                
+
                 <div class="contenedor-busqueda">
                     <input type="text" id="idReporte" placeholder="Ingrese el ID de su reporte (Ej: RPT-001)">
-                    
+
                     <button type="button" id="btnBuscar">Buscar Estado</button>
                 </div>
 
                 <div id="contenedorResultado" class="contenedor-resultado">
                     <h4>Estado de su reporte:</h4>
-                    
+
                     <p><strong>ID Reporte:</strong> <span id="resultadoId"></span></p>
                     <p><strong>Tipo:</strong> <span id="resultadoTipo"></span></p>
                     <p><strong>Ubicación:</strong> <span id="resultadoUbicacion"></span></p>
@@ -201,32 +206,32 @@
                     <p><strong>Fecha de Reporte:</strong> <span id="resultadoFecha"></span></p>
                     <p><strong>Nombre:</strong> <span id="resultadoNombre"></span></p>
                     <p><strong>Contacto:</strong> <span id="resultadoContacto"></span></p>
-                    
+
                     <div id="contenedorImagenResultado"></div>
                 </div>
             </div>
         </section>
 
         <!-- PANEL ADMINISTRATIVO -->
-         <section id="admin" class="seccionReporte">
+        <section id="admin" class="seccionReporte">
             <div class="admin-seccion">
-                <h2>Panel de Control Administrativo</h2>                
+                <h2>Panel de Control Administrativo</h2>
                 <button id="btnCerrarSesion" style="margin-bottom: 20px;">Cerrar Sesión</button>
-                
-                <!-- ESTADÍSTICAS -->                              
+
+                <!-- ESTADÍSTICAS -->
                 <div class="contenedor-estadisticas">
                     <div class="tarjeta-estadistica">
-                            <h3>Total de reportes</h3>
-                            <div id="numTotalReportes" class="numero-estadistica">0</div>
-                        </div>
-                        <div class="tarjeta-estadistica">
-                            <h3>Casos Críticos</h3>
-                            <div id="numCasosCriticos" class="numero-estadistica">0</div>
-                        </div>
-                        <div class="tarjeta-estadistica">
-                            <h3>En Proceso</h3>
-                            <div id= "numEnProceso" class="numero-estadistica">0</div>
-                        </div>
+                        <h3>Total de reportes</h3>
+                        <div id="numTotalReportes" class="numero-estadistica">0</div>
+                    </div>
+                    <div class="tarjeta-estadistica">
+                        <h3>Casos Críticos</h3>
+                        <div id="numCasosCriticos" class="numero-estadistica">0</div>
+                    </div>
+                    <div class="tarjeta-estadistica">
+                        <h3>En Proceso</h3>
+                        <div id="numEnProceso" class="numero-estadistica">0</div>
+                    </div>
                 </div>
 
                 <!-- TABLA DE GESTIÓN -->
@@ -244,10 +249,10 @@
                     <tbody id="cuerpo-tabla-reportes">
                         <!-- Filas de la tabla serán agregadas dinámicamente -->
                     </tbody>
-                </table>    
-        
-	</main>
-	<!--pie de pagina-->
+                </table>
+
+    </main>
+    <!--pie de pagina-->
     <footer class="pie-pagina">
         <div class="contenido-piePagina">
             <p>&copy; 2026 Prototipo de Reportes Urbanos - Bogotá</p>
@@ -256,6 +261,7 @@
             <p><small>Ingeniería de Sistemas - Fase de Prototipado</small></p>
         </div>
     </footer>
-    
+
 </body>
+
 </html>
