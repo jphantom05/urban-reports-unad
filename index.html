@@ -32,7 +32,7 @@
                 <p class="descripcion-seccion">En esta plataforma puedes reportar cualquier novedad que afecte tu
                     comunidad, consultar el estado de tus reportes y acceder a información relevante sobre la ciudad.
                 </p>
-                <button class="crear-reporte" id="inicio-reporte">Crear Reporte Ahora</button>
+                <button class="btn-reporte" id="inicio-reporte">Crear Reporte Ahora</button>
             </div>
 
             <!-- Tipos de novedades -->
@@ -130,19 +130,20 @@
                             <option value="Semáforos">Semáforos</option>
                             <option value="Residuos-Aseo">Residuos y Aseo</option>
                             <option value="Alcantarillado">Alcantarillado</option>
+                            <option value="Otros">Otros</option>
                         </select>
                     </div>
 
                     <div class="reportes">
                         <label for="ubicacion">Ubicación del Reporte:</label>
                         <input type="text" id="ubicacion" name="direccionReporte" placeholder="Ej: Calle 26 # 50-00"
-                            required>
+                            maxlength="200" required>
                     </div>
 
                     <div class="reportes">
                         <label for="descripcion">Descripción del Problema:</label>
                         <textarea id="descripcion" name="descripcionReporte"
-                            placeholder="Describe la novedad con detalles..." required></textarea>
+                            placeholder="Describe la novedad con detalles..."  maxlength="500" required></textarea>
                     </div>
 
                     <div class="reportes">
@@ -159,12 +160,12 @@
                         <legend>Datos Opcionales (para seguimiento)</legend>
                         <div class="reportes">
                             <label for="nombreUsuario">Nombre completo</label>
-                            <input type="text" id="nombreUsuario" placeholder="Tu nombre (opcional)">
+                            <input type="text" id="nombreUsuario" maxlength="100" placeholder="Tu nombre (opcional)">
                         </div>
 
                         <div class="reportes">
                             <label for="contacto">Teléfono o Correo Electrónico</label>
-                            <input type="text" id="contacto" placeholder="Ej: 3001234567 o correo@email.com (opcional)">
+                            <input type="text" id="contacto" maxlength="254" placeholder="Ej: 3001234567 o correo@email.com (opcional)">
                         </div>
 
                         <div class="autorizacion-datos">
