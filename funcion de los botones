@@ -1,0 +1,12 @@
+[33mff44109[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m3e99966[m HEAD@{1}: commit: feat: crear js funcion de los botones
+[33mff44109[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{2}: commit: feat: carbiar detalles menores del css
+[33m5de875e[m HEAD@{3}: commit: feat: agregar selector de tipo de novedad en el formulario
+[33m7f9caad[m HEAD@{4}: commit: feat: creacion de estilos con css
+[33m02a19bd[m HEAD@{5}: commit: feat: agregar pie de pagina
+[33m5644d05[m HEAD@{6}: reset: moving to HEAD~1
+[33mf1bf193[m HEAD@{7}: commit: feat: creacion de estilos y algunas funciones
+[33m5644d05[m HEAD@{8}: commit: feat: agregar mas datos
+[33mf86b9ce[m HEAD@{9}: commit: feat: pagina de inicio y formulario
+[33mcbc3940[m HEAD@{10}: pull origin main --allow-unrelated-histories: Merge made by the 'ort' strategy.
+[33m75d3c0e[m HEAD@{11}: commit (initial): feat: estructura base HTML5 del sistema de reportes urbanos
