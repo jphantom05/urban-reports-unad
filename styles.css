@@ -15,6 +15,10 @@
   --shadow: 0 24px 60px rgba(15, 30, 70, 0.08);
 }
 
+.oculto {
+    display: none !important;
+}
+
 * {
   box-sizing: border-box;
 }

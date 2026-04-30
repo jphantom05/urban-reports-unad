@@ -18,7 +18,7 @@
                     <li><a href="#" class="enlace-nav" data-section="inicio">Inicio</a></li>
                     <li><a href="#" class="enlace-nav" data-section="reportar">Reportar Novedad</a></li>
                     <li><a href="#" class="enlace-nav" data-section="consultar">Consultar Reporte</a></li>
-                    <li><a href="#" class="enlace-nav" data-section="acceso">Acceso Administrador</a></li>
+                    <li><a href="#" class="enlace-nav" data-section="admin">Acceso Administrador</a></li>
                 </ul>
             </nav>
         </div>
@@ -117,13 +117,13 @@
         </section>
 
         <!-- Formulario de reporte -->
-        <section class="formulario" id="reporte">
-            <div class="formulario">
+        <section class="formulario oculto" id="reporte">
+            <div class="formularioReporte">
                 <h2>Registrar nueva novedad urbana</h2>
                 <form id="formulario-reporte">
                     <div class="reportes">
                         <label for="tipoNovedad">Tipo de Novedad:</label>
-                        <select> id="tipoNovedad" required>
+                        <select id="tipoNovedad" required>
                             <option value="">--Selecciones una opcion--</option>
                             <option value="Huecos-Baches">Huecos y Baches</option>
                             <option value="Luminarias">Luminarias</option>
@@ -187,7 +187,7 @@
         </section>
 
         <!-- Sección de consulta de reportes -->
-        <section id="consultar" class="seccionReporte">
+        <section id="consultar" class="seccionReporte oculto">
             <div class="seccion-seguimiento">
                 <h2>Seguimiento de mi reporte</h2>
 
@@ -214,7 +214,7 @@
         </section>
 
         <!-- PANEL ADMINISTRATIVO -->
-        <section id="admin" class="seccionReporte">
+        <section id="admin" class="seccionReporte oculto">
             <div class="admin-seccion">
                 <h2>Panel de Control Administrativo</h2>
                 <button id="btnCerrarSesion" style="margin-bottom: 20px;">Cerrar Sesión</button>
@@ -263,6 +263,7 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
