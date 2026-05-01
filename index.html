@@ -205,6 +205,7 @@
                     <p><strong>Ubicación:</strong> <span id="resultadoUbicacion"></span></p>
                     <p><strong>Estado:</strong> <span id="resultadoEstado"></span></p>
                     <p><strong>Fecha de Reporte:</strong> <span id="resultadoFecha"></span></p>
+                    <p><strong>Descripción del Reporte:</strong> <span id="descripcionReporte"></span></p>
                     <p><strong>Nombre:</strong> <span id="resultadoNombre"></span></p>
                     <p><strong>Contacto:</strong> <span id="resultadoContacto"></span></p>
 
@@ -264,6 +265,30 @@
     </footer>
 
     <script src="script.js"></script>
+
+<!-- Firebase SDKs -->
+<script type="module">
+  console.log("firebase script cargando...");
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJuzXu4EQBOHSeruPc1gJSggjLpAMlhMk",
+    authDomain: "proyecto-reporte-ciudada-dfa95.firebaseapp.com",
+    projectId: "proyecto-reporte-ciudada-dfa95",
+    storageBucket: "proyecto-reporte-ciudada-dfa95.firebasestorage.app",
+    messagingSenderId: "720064559514",
+    appId: "1:720064559514:web:dd91286dd24ab43abfe223"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  console.log("Firebase conectado");
+</script>
+
+
 </body>
 
 </html>

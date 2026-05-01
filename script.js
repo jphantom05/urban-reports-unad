@@ -47,5 +47,39 @@ btnInicioReporte.addEventListener('click', function () {
     ocultarSecciones();
     document.getElementById('reporte').classList.remove('oculto');
 });
+
+
+// FIREBASE - guardar reporte
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+const form = document.getElementById("formulario-reporte");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const tipo = document.getElementById("tipoNovedad").value;
+    const ubicacion = document.getElementById("ubicacion").value;
+    const descripcion = document.getElementById("descripcion").value;
+    const nombre = document.getElementById("nombreUsuario").value;
+    const contacto = document.getElementById("contacto").value;
+
+    try {
+        await addDoc(collection(window.db, "reportes"), {
+            tipo,
+            ubicacion,
+            descripcion,
+            nombre: nombre || null,
+            contacto: contacto || null,
+            estado: "pendiente",
+            fecha: new Date().toISOString()
+        });
+
+        alert("Reporte enviado correctamente ✅");
+        form.reset();
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
     
 });
