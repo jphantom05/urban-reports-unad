@@ -1,7 +1,13 @@
-import { 
-    collection, addDoc, getDocs, deleteDoc, doc, updateDoc, getDoc 
-} 
-from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import {
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    doc,
+    updateDoc,
+    getDoc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "1234";
@@ -30,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         cargarReportesAdmin();
+        cargarEstadisticas(); 
     }, 50);
 }
 
@@ -361,5 +368,33 @@ window.verDetalle = async function(id) {
     fila.insertAdjacentElement("afterend", detalle);
 };
 
+function cargarEstadisticas() {
+
+    const total = document.getElementById("numTotalReportes");
+    const criticos = document.getElementById("numCasosCriticos");
+    const proceso = document.getElementById("numEnProceso");
+
+    if (!total || !criticos || !proceso) return;
+
+    onSnapshot(collection(window.db, "reportes"), (snapshot) => {
+
+        let t = 0;
+        let c = 0;
+        let p = 0;
+
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+
+            t++;
+
+            if (data.estado === "pendiente") c++;
+            if (data.estado === "en proceso") p++;
+        });
+
+        total.textContent = t;
+        criticos.textContent = c;
+        proceso.textContent = p;
+    });
+}
 
 

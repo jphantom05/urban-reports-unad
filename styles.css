@@ -602,3 +602,11 @@ tbody td:last-child {
     border-radius: 8px;
     z-index: 1000;
 }
+
+.contenido-piePagina {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--surface);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
