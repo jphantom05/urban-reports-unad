@@ -104,6 +104,7 @@ if (btnCerrarSesion) {
         });
     });
 
+    
     // BOTÓN INICIO
     const btnInicioReporte = document.getElementById('inicio-reporte');
 
