@@ -56,32 +56,34 @@ btnInicioReporte.addEventListener('click', function () {
 
 const form = document.getElementById("formulario-reporte");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const tipo = document.getElementById("tipoNovedad").value;
-    const ubicacion = document.getElementById("ubicacion").value;
-    const descripcion = document.getElementById("descripcion").value;
-    const nombre = document.getElementById("nombreUsuario").value;
-    const contacto = document.getElementById("contacto").value;
+        const tipo = document.getElementById("tipoNovedad").value;
+        const ubicacion = document.getElementById("ubicacion").value;
+        const descripcion = document.getElementById("descripcion").value;
+        const nombre = document.getElementById("nombreUsuario").value;
+        const contacto = document.getElementById("contacto").value;
 
-    try {
-        await addDoc(collection(window.db, "reportes"), {
-            tipo,
-            ubicacion,
-            descripcion,
-            nombre: nombre || null,
-            contacto: contacto || null,
-            estado: "pendiente",
-            fecha: new Date().toISOString()
-        });
+        try {
+            await addDoc(collection(window.db, "reportes"), {
+                tipo,
+                ubicacion,
+                descripcion,
+                nombre: nombre || null,
+                contacto: contacto || null,
+                estado: "pendiente",
+                fecha: new Date().toISOString()
+            });
 
-        alert("Reporte enviado correctamente ✅");
-        form.reset();
+            alert("Reporte enviado correctamente ✅");
+            form.reset();
 
-    } catch (error) {
-        console.error("Error:", error);
-    }
-});
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    });
+}
     
 });

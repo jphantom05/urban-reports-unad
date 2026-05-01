@@ -265,15 +265,16 @@
     </footer>
 
     <!--<script src="script.js"></script> -->
-    <script type="module" src="js/script.js"></script>
+    
 
 <!-- Firebase SDKs -->
 <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
   console.log("firebase script cargando...");
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
+  
   const firebaseConfig = {
     apiKey: "AIzaSyBJuzXu4EQBOHSeruPc1gJSggjLpAMlhMk",
     authDomain: "proyecto-reporte-ciudada-dfa95.firebaseapp.com",
@@ -287,8 +288,10 @@
   const db = getFirestore(app);
 
   console.log("Firebase conectado");
+  
 </script>
 
+<script type="module" src="js/script.js"></script>
 
 </body>
 
