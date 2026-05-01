@@ -1,4 +1,7 @@
-import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import { 
+    collection, addDoc, getDocs, deleteDoc, doc, updateDoc, getDoc 
+} 
+from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("¡El sistema de Reporte Ciudadano está listo!");
@@ -59,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const descripcion = document.getElementById("descripcion").value;
             const nombre = document.getElementById("nombreUsuario").value;
             const contacto = document.getElementById("contacto").value;
+            const autorizacion = document.getElementById("autorizacionDatos").checked;
+
+            // VALIDACIÓN
+            if ((nombre || contacto) && !autorizacion) {
+                alert("Debes autorizar el tratamiento de datos para enviar información personal");
+                return;
+            }
 
             // GENERAR CÓDIGO
             const codigo = "RPT-" + Math.floor(1000 + Math.random() * 9000);
@@ -176,6 +186,7 @@ async function cargarReportesAdmin() {
             const data = doc.data();
 
             const fila = document.createElement("tr");
+            fila.id = `fila-${doc.id}`;
 
             fila.innerHTML = `
                 <td>${data.codigo}</td>
@@ -184,6 +195,7 @@ async function cargarReportesAdmin() {
                 <td>${data.ubicacion}</td>
                 <td>${data.estado}</td>
                 <td>
+                    <button onclick="verDetalle('${doc.id}')">Ver detalle</button>
                     <button onclick="cambiarEstado('${doc.id}')">Cambiar</button>
                     <button onclick="eliminarReporte('${doc.id}')">Eliminar</button>
                 </td>
@@ -196,3 +208,98 @@ async function cargarReportesAdmin() {
         console.error(error);
     }
 }
+
+// ELIMINAR REPORTE
+window.eliminarReporte = async function(id) {
+
+    const confirmar = confirm("¿Eliminar este reporte?");
+
+    if (!confirmar) return;
+
+    try {
+        await deleteDoc(doc(window.db, "reportes", id));
+
+        alert("Reporte eliminado ✅");
+
+        // recargar tabla
+        cargarReportesAdmin();
+
+    } catch (error) {
+        console.error(error);
+        alert("Error al eliminar");
+    }
+};
+
+//  CAMBIAR ESTADO
+window.cambiarEstado = async function(id) {
+
+    const opcion = prompt(
+        "Nuevo estado:\n1. Pendiente\n2. En Proceso\n3. Solucionado"
+    );
+
+    let nuevoEstado = "";
+
+    if (opcion === "1") nuevoEstado = "pendiente";
+    else if (opcion === "2") nuevoEstado = "en proceso";
+    else if (opcion === "3") nuevoEstado = "solucionado";
+    else {
+        alert("Opción inválida");
+        return;
+    }
+
+    try {
+        await updateDoc(doc(window.db, "reportes", id), {
+            estado: nuevoEstado
+        });
+
+        alert("Estado actualizado ✅");
+
+        // recargar tabla
+        cargarReportesAdmin();
+
+    } catch (error) {
+        console.error(error);
+        alert("Error al actualizar");
+    }
+};
+
+//ver detalles
+window.verDetalle = async function(id) {
+
+    const fila = document.getElementById(`fila-${id}`);
+    if (!fila) return;
+
+    // cerrar otro abierto
+    document.querySelectorAll("[id^='detalle-']").forEach(el => el.remove());
+
+    // si ya estaba abierto, solo cerramos y salimos
+    const existente = document.getElementById(`detalle-${id}`);
+    if (existente) {
+        existente.remove();
+        return;
+    }
+
+    const docSnap = await getDoc(doc(window.db, "reportes", id));
+
+    if (!docSnap.exists()) return;
+
+    const data = docSnap.data();
+
+    const detalle = document.createElement("tr");
+    detalle.id = `detalle-${id}`;
+
+    detalle.innerHTML = `
+        <td colspan="6">
+            <div style="padding:10px; background:#f5f5f5;">
+                <p><strong>Tipo:</strong> ${data.tipo}</p>
+                <p><strong>Ubicación:</strong> ${data.ubicacion}</p>
+                <p><strong>Estado:</strong> ${data.estado}</p>
+                <p><strong>Descripción:</strong> ${data.descripcion}</p>
+                <p><strong>Nombre:</strong> ${data.nombre || "No aplica"}</p>
+                <p><strong>Contacto:</strong> ${data.contacto || "No aplica"}</p>
+            </div>
+        </td>
+    `;
+
+    fila.insertAdjacentElement("afterend", detalle);
+};
