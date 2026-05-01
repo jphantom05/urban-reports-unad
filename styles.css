@@ -591,3 +591,14 @@ tbody td:last-child {
     gap: 16px;
   }
 }
+
+.mensaje {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1000;
+}
