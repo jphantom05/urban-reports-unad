@@ -3,6 +3,10 @@ import {
 } 
 from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "1234";
+let adminLogueado = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("¡El sistema de Reporte Ciudadano está listo!");
 
@@ -16,6 +20,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function abrirAdmin() {
+    ocultarSecciones();
+
+    const admin = document.getElementById('admin');
+    admin.classList.remove('oculto');
+
+    console.log("Cargando admin...");
+
+    setTimeout(() => {
+        cargarReportesAdmin();
+    }, 50);
+}
+
+function mostrarLoginAdmin() {
+
+    if (adminLogueado) {
+        abrirAdmin();
+        return;
+    }
+
+    const usuario = prompt("Usuario administrador:");
+    const clave = prompt("Contraseña:");
+
+    if (usuario === ADMIN_USER && clave === ADMIN_PASS) {
+
+        adminLogueado = true;
+        abrirAdmin();
+
+    } else {
+        alert("Acceso denegado ❌");
+    }
+}
+
+
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+if (btnCerrarSesion) {
+    btnCerrarSesion.addEventListener("click", () => {
+
+        adminLogueado = false;
+
+        ocultarSecciones();
+
+        document.getElementById("inicio").classList.remove("oculto");
+
+        console.log("Sesión cerrada");
+    });
+}
+
+
     enlaces.forEach(enlace => {
         enlace.addEventListener('click', function(e) {
             e.preventDefault();
@@ -23,6 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const seccionId = this.getAttribute('data-section');
 
             ocultarSecciones();
+
+            if (seccionId === "admin") {
+            e.preventDefault();
+            mostrarLoginAdmin();
+            return;
+        }
 
             if (seccionId === "inicio") {
                 document.getElementById('inicio').classList.remove('oculto');
@@ -33,10 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (seccionId === "consultar") {
                 document.getElementById('consultar').classList.remove('oculto');
             } 
-            else if (seccionId === "admin") {
-                document.getElementById('admin').classList.remove('oculto');
-                cargarReportesAdmin();
-            }    
+              
         });
     });
 
@@ -303,3 +360,6 @@ window.verDetalle = async function(id) {
 
     fila.insertAdjacentElement("afterend", detalle);
 };
+
+
+
