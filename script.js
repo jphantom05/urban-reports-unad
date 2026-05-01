@@ -1,3 +1,5 @@
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("¡El sistema de Reporte Ciudadano está listo!");
 
@@ -50,7 +52,7 @@ btnInicioReporte.addEventListener('click', function () {
 
 
 // FIREBASE - guardar reporte
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
 
 const form = document.getElementById("formulario-reporte");
 
