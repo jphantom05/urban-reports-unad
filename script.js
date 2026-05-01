@@ -1,4 +1,4 @@
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("¡El sistema de Reporte Ciudadano está listo!");
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } 
             else if (seccionId === "admin") {
                 document.getElementById('admin').classList.remove('oculto');
+                cargarReportesAdmin();
             }    
         });
     });
@@ -110,3 +111,88 @@ window.cerrarMensaje = function() {
         contenedor.classList.add("oculto");
     }
 };
+
+//  BUSCAR REPORTE
+const btnBuscar = document.getElementById("btnBuscar");
+
+if (btnBuscar) {
+    btnBuscar.addEventListener("click", async () => {
+
+        const codigoBuscado = document.getElementById("idReporte").value.trim();
+
+        if (!codigoBuscado) {
+            alert("Ingresa un código");
+            return;
+        }
+
+        try {
+            const querySnapshot = await getDocs(collection(window.db, "reportes"));
+
+            let encontrado = null;
+
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+
+                if (data.codigo === codigoBuscado) {
+                    encontrado = data;
+                }
+            });
+
+            if (encontrado) {
+                document.getElementById("resultadoId").textContent = encontrado.codigo;
+                document.getElementById("resultadoTipo").textContent = encontrado.tipo;
+                document.getElementById("resultadoUbicacion").textContent = encontrado.ubicacion;
+                document.getElementById("resultadoEstado").textContent = encontrado.estado;
+                document.getElementById("resultadoFecha").textContent = encontrado.fecha;
+                document.getElementById("descripcionReporte").textContent = encontrado.descripcion;
+                document.getElementById("resultadoNombre").textContent = encontrado.nombre || "No aplica";
+                document.getElementById("resultadoContacto").textContent = encontrado.contacto || "No aplica";
+
+            } else {
+                alert("No se encontró el reporte ❌");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Error al buscar");
+        }
+    });
+}
+
+//  CARGAR REPORTES ADMIN
+async function cargarReportesAdmin() {
+
+    const tabla = document.getElementById("cuerpo-tabla-reportes");
+
+    if (!tabla) return;
+
+    tabla.innerHTML = "";
+
+    try {
+        const querySnapshot = await getDocs(collection(window.db, "reportes"));
+
+        querySnapshot.forEach(doc => {
+
+            const data = doc.data();
+
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${data.codigo}</td>
+                <td>${data.fecha}</td>
+                <td>${data.tipo}</td>
+                <td>${data.ubicacion}</td>
+                <td>${data.estado}</td>
+                <td>
+                    <button onclick="cambiarEstado('${doc.id}')">Cambiar</button>
+                    <button onclick="eliminarReporte('${doc.id}')">Eliminar</button>
+                </td>
+            `;
+
+            tabla.appendChild(fila);
+        });
+
+    } catch (error) {
+        console.error(error);
+    }
+}
